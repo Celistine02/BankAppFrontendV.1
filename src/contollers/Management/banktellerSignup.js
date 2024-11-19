@@ -48,14 +48,19 @@ const bankTellerSignupController = async (req, res) => {
 
     // Send signup confirmation email to the bank teller
     const emailContent = signupTemplate(username, "bank teller", "N/A");
-    await sendEmail(email, "Welcome to Cloud Campus", emailContent);
+    await sendEmail(
+      email,
+      "Welcome to Celestine Banking Services",
+      emailContent
+    );
 
     // Prepare bank teller profile data to be sent to the frontend
     const bankTellerProfileData = {
       id: newBankTeller._id,
       username: newBankTeller.username,
       email: newBankTeller.email,
-    };
+      branchName: newBankTeller.branchName,
+    };  
 
     // Send success response with token and bank teller profile data
     res.status(201).send({
