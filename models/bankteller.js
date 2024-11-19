@@ -16,6 +16,10 @@ const banktellerSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  branchName: { // Added branch name field
+    type: String,
+    required: true,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
